@@ -483,3 +483,5 @@ DEBUG :Mon Mar 22 2021 23:48:09 GMT+0530 (India Standard Time): GET /api/trade/i
 INFO :Mon Mar 22 2021 23:48:09 GMT+0530 (India Standard Time): Trade Details fetched in 27ms
 DEBUG :Mon Mar 22 2021 23:48:25 GMT+0530 (India Standard Time): GET /api/trade/id
 INFO :Mon Mar 22 2021 23:48:25 GMT+0530 (India Standard Time): Trade Details fetched in 17ms
+INFO :Tue Mar 23 2021 01:37:24 GMT+0530 (India Standard Time): GET /api/trade to get all the trades
+INFO :Tue Mar 23 2021 01:37:25 GMT+0530 (India Standard Time): Got all Trades in 191ms

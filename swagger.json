@@ -1,0 +1,400 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SmallCase Assignment",
+    "description": "Portfolio Tracker",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://35.154.165.19:8000/",
+      "variables": {}
+    },
+    {
+      "url": "http://localhost:8000/",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/trade": {
+      "get": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "GetAllTrades",
+        "description": "Returns a list of all the trades made",
+        "operationId": "GetAllTrades",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/allTrades"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Create Trade",
+        "description": "Creates a new trade",
+        "operationId": "Ceate",
+        "parameters": [],
+        "requestBody": {
+          "description": "trade object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/trade"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully created",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "example": "Message:\"Success\""
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "internel server error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/trades/{id}": {
+      "delete": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Delete a trade",
+        "description": "Deletes a trade rolling back all changes",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "example": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "example": {
+                  "Message": "Success"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Update Trade",
+        "description": "Update a previous trade",
+        "operationId": "Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "example": 5
+          }
+        ],
+        "requestBody": {
+          "description": "trade object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/trade"
+              },
+              "example": {
+                "type": "BUY",
+                "company": "TCS",
+                "tickr": "TCS",
+                "price": 1580,
+                "quantity": 10
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully created",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "example": {
+                  "Message": "Success"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "internel server error"
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Get one trade",
+        "description": "get details of one trade",
+        "operationId": "get one trade",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "number"
+            },
+            "example": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {}
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/trade/returns": {
+      "get": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Get net returns",
+        "description": "get Returns",
+        "operationId": "get returns",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/returns"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/trade/portfolio": {
+      "get": {
+        "tags": [
+          "Trades"
+        ],
+        "summary": "Get portfolio",
+        "description": "get portfolio",
+        "operationId": "get portfolio",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/portfolio"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "trade": {
+        "title": "trade",
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string"
+          },
+          "tickr": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "type": "BUY",
+          "company": "TCS",
+          "tickr": "TCS",
+          "price": 1580,
+          "quantity": 10
+        }
+      },
+      "returns": {
+        "title": "returns",
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "returns_amt": {
+            "type": "number",
+            "format": "float"
+          },
+          "returns_cent": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "example": {
+          "returns_amt": 10550.4,
+          "returns_cent": 95.2
+        }
+      },
+      "portfolio": {
+        "title": "portfolio",
+        "type": "object",
+        "properties": {
+          "total_quantity": {
+            "type": "number",
+            "format": "int32",
+            "example": 10
+          },
+          "total_amt": {
+            "type": "number",
+            "format": "float",
+            "example": 1580
+          },
+          "holdings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/holding"
+            },
+            "description": ""
+          }
+        }
+      },
+      "holding": {
+        "title": "holding",
+        "type": "object",
+        "properties": {
+          "company": {
+            "type": "string"
+          },
+          "tickr": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "company": "TCS",
+          "tickr": "TCS",
+          "price": 1580,
+          "quantity": 10
+        }
+      },
+      "allTrades": {
+        "title": "all trades",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/trade"
+        },
+        "description": ""
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Trades",
+      "description": "All trade related apis"
+    }
+  ]
+}
