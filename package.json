@@ -1,0 +1,30 @@
+{
+  "name": "smallcase",
+  "version": "1.0.0",
+  "description": "Smallcase Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "js",
+    "Portfolio",
+    "tracker"
+  ],
+  "author": "Mohit Agarwal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "enum": "^3.0.4",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "is-empty": "^1.2.0",
+    "mongoose": "^5.12.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.1"
+  }
+}
